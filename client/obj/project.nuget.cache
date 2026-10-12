@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "KdhzzEuHHdc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mdubey17\\.nuget\\packages\\google.protobuf\\3.36.2\\google.protobuf.3.36.2.nupkg.sha512",
+    "C:\\Users\\mdubey17\\.nuget\\packages\\grpc\\2.46.6\\grpc.2.46.6.nupkg.sha512",
+    "C:\\Users\\mdubey17\\.nuget\\packages\\grpc.core\\2.46.6\\grpc.core.2.46.6.nupkg.sha512",
+    "C:\\Users\\mdubey17\\.nuget\\packages\\grpc.core.api\\2.46.6\\grpc.core.api.2.46.6.nupkg.sha512",
+    "C:\\Users\\mdubey17\\.nuget\\packages\\grpc.tools\\2.84.0\\grpc.tools.2.84.0.nupkg.sha512",
+    "C:\\Users\\mdubey17\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://centraluhg.jfrog.io/artifactory/api/nuget/v3/physicalhealth-application-nuget-vir/index.json.",
+      "projectPath": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\client.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\client.csproj",
+      "targetGraphs": []
+    }
+  ]
+}
