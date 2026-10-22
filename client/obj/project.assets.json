@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net8.0": {
       "Google.Protobuf/3.36.2": {
@@ -255,23 +255,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mdubey17\\.nuget\\packages\\": {},
+    "C:\\Users\\acer\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\client.csproj",
+      "projectUniqueName": "D:\\GitProjects\\grpc-class\\client\\client.csproj",
       "projectName": "client",
-      "projectPath": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\client.csproj",
-      "packagesPath": "C:\\Users\\mdubey17\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mdubey17\\Code_WorkSpace\\Learning\\grpc-class\\client\\obj\\",
+      "projectPath": "D:\\GitProjects\\grpc-class\\client\\client.csproj",
+      "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+      "outputPath": "D:\\GitProjects\\grpc-class\\client\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\mdubey17\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -280,11 +280,11 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://centraluhg.jfrog.io/artifactory/api/nuget/v3/physicalhealth-application-nuget-vir/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
+          "framework": "net8.0",
           "targetAlias": "net8.0",
           "projectReferences": {}
         }
@@ -299,10 +299,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net8.0": {
+        "framework": "net8.0",
         "targetAlias": "net8.0",
         "dependencies": {
           "Google.Protobuf": {
@@ -336,16 +337,8 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1900",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://centraluhg.jfrog.io/artifactory/api/nuget/v3/physicalhealth-application-nuget-vir/index.json."
-    }
-  ]
+  }
 }

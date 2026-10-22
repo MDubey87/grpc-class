@@ -29,12 +29,26 @@ namespace server
         public override async Task<LongGreetResponse> LongGreet(IAsyncStreamReader<LongGreetRequest> requestStream, ServerCallContext context)
         {
             var result = "";
-            while(await requestStream.MoveNext())
+            while (await requestStream.MoveNext())
             {
                 var greeting = requestStream.Current.Greeting;
                 result += $"Hello, {greeting.FirstName} {greeting.LastName}!\n";
             }
             return new LongGreetResponse { Result = result };
+        }
+        public override async Task GreetEveryOne(IAsyncStreamReader<GreetEveryOneRequest> requestStream, IServerStreamWriter<GreetEveryOneResponse> responseStream, ServerCallContext context)
+        {
+            while (await requestStream.MoveNext())
+            {
+                var greeting = requestStream.Current.Greeting;
+                var result = $"Hello, {greeting.FirstName} {greeting.LastName}!";
+                var response = new GreetEveryOneResponse
+                {
+                    Result = result
+                };
+                Console.WriteLine($"Received :{result}");
+                await responseStream.WriteAsync(response);
+            }
         }
     }
 }
