@@ -47,4 +47,6 @@ service GreetService {
 	rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse);
 	// Bi-Directional Stream
 	rpc GreetEveryOne(stream GreetEveryOneRequest) returns (stream GreetEveryOneResponse);
+	// RPC with Deadline
+	rpc GreetWithDeadline(GreetingRequest) returns (GreetingResponse);
 }

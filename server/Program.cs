@@ -2,6 +2,7 @@
 using Greet;
 using Grpc.Core;
 using server;
+using Sqrt;
 
 int Port = 50051;
 Server? server = null;
@@ -9,7 +10,8 @@ try
 {
     server = new Server
     {
-        Services = { GreetService.BindService(new GreetingServiceImpl()), CalculatorService.BindService(new CalculatorServiceImpl()) },
+        Services = { GreetService.BindService(new GreetingServiceImpl()), CalculatorService.BindService(new CalculatorServiceImpl()),
+        SqrtService.BindService(new SqrtServiceImpl()) },
         Ports = { new ServerPort("localhost", Port, ServerCredentials.Insecure) }
     };
     server.Start();

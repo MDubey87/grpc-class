@@ -50,5 +50,23 @@ namespace server
                 await responseStream.WriteAsync(response);
             }
         }
+        public override async Task<GreetingResponse> GreetWithDeadline(GreetingRequest request, ServerCallContext context)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if (context.CancellationToken.IsCancellationRequested)
+                {
+                    Console.WriteLine("Request was cancelled by the client.");
+                    throw new RpcException(new Status(StatusCode.Cancelled, "Request was cancelled by the client."));
+                }
+                Thread.Sleep(1000); // Simulate some work
+            }
+            //await Task.Delay(300);
+            var response = new GreetingResponse
+            {
+                Result = $"Hello, {request.Greeting.FirstName} {request.Greeting.LastName}!"
+            };
+            return response;
+        }
     }
 }

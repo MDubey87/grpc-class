@@ -1,6 +1,7 @@
 ﻿using Calculator;
 using Greet;
 using Grpc.Core;
+using Sqrt;
 
 const string target = "127.0.0.1:50051";
 Channel channel = new Channel(target, ChannelCredentials.Insecure);
@@ -13,11 +14,12 @@ channel.ConnectAsync().ContinueWith((task) =>
 }).Wait();
 var client = new GreetService.GreetServiceClient(channel);
 
-DoSimpleGreet(client);
-await DoManyGreetings(client);
-await DoLongGreet(client);
-await DoGreetEveryone(client);
-
+//DoSimpleGreet(client);
+//await DoManyGreetings(client);
+//await DoLongGreet(client);
+//await DoGreetEveryone(client);
+//await SqrtServcie(channel);
+await GeetingWithDeadline(client);
 channel.ShutdownAsync().Wait();
 Console.ReadKey();
 
@@ -103,6 +105,45 @@ static async Task DoGreetEveryone(GreetService.GreetServiceClient client)
 
     await stream.RequestStream.CompleteAsync();
     await responseReaderTask;
+}
+
+static async Task GeetingWithDeadline(GreetService.GreetServiceClient client)
+{
+    var greeting = new Greeting()
+    {
+        FirstName = "Clement",
+        LastName = "Jean"
+    };
+    try
+    {
+        var request = new GreetingRequest() { Greeting = greeting };
+        var response = client.GreetWithDeadline(request,deadline:DateTime.UtcNow.AddMilliseconds(5000));
+        Console.WriteLine(response.Result);
+    }
+    catch (RpcException ex) when (ex.StatusCode == StatusCode.DeadlineExceeded)
+    {
+        Console.WriteLine("Error: " + ex.Status.Detail);
+    }
+    catch (RpcException ex) when (ex.StatusCode == StatusCode.Cancelled)
+    {
+        Console.WriteLine("Error: " + ex.Status.Detail);
+    }
+
+}
+
+static async Task SqrtServcie(Channel channel)
+{
+    var client = new SqrtService.SqrtServiceClient(channel);
+    var request = new SqrtRequest() { Number = -1 };
+    try
+    {
+        var response = await client.SqrtAsync(request);
+        Console.WriteLine("Square root of {0} is: {1}", request.Number, response.Result);
+    }
+    catch (RpcException ex) when (ex.StatusCode == StatusCode.InvalidArgument)
+    {
+        Console.WriteLine("Error: " + ex.Status.Detail);
+    }
 }
 
 
